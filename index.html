@@ -1,0 +1,553 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mutee Ur Rehman | Developer Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+:root {
+    --bg:#070c16;
+    --card:#0c1422;
+    --cyan:#19d9f4;
+    --blue:#3985ff;
+    --white:#eef3ff;
+    --gray:#a4b1c7;
+    --border:#202c40;
+}
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:Inter,sans-serif}
+a{text-decoration:none;color:inherit}
+.container{width:90%;max-width:1250px;margin:auto}
+section{padding:95px 0;scroll-margin-top:80px}
+.heading{margin-bottom:45px}
+.heading small{color:var(--cyan);letter-spacing:3px;font-size:12px}
+.heading h2{font-size:40px;margin:12px 0}
+.heading h2 span{color:var(--cyan)}
+.heading p{color:var(--gray);line-height:1.8}
+
+/* NAVBAR */
+header{position:fixed;top:0;width:100%;z-index:100;background:#070c16ed;backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+nav{height:75px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:26px;font-weight:800}
+.logo span{color:var(--cyan)}
+.nav-links{display:flex;gap:27px;list-style:none}
+.nav-links a{font-size:13px;color:var(--gray);transition:.3s}
+.nav-links a:hover{color:var(--cyan)}
+.menu-btn{display:none;background:none;border:0;color:white;font-size:24px}
+
+/* HOME */
+.hero{min-height:100vh;display:flex;align-items:center;padding-top:100px;background:radial-gradient(ellipse at 75% 40%,#10294355,transparent 55%)}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}
+.hero h1{font-size:clamp(42px,5vw,68px);line-height:1.2}
+.hero h1 span{color:var(--cyan)}
+.hero-intro{font-size:17px;line-height:2.1;color:var(--gray);margin-top:25px}
+.hero-intro span{color:var(--cyan)}
+.role-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:25px}
+.role-tags span{font-size:12px;color:var(--cyan);padding:10px 14px;border:1px solid #19d9f444;background:#19d9f40c;border-radius:25px}
+.resume-cta{margin-top:30px}
+.resume-link{display:inline-flex;align-items:center;gap:10px;padding:13px 20px;border:1px solid var(--cyan);border-radius:30px;color:var(--cyan);font-size:14px;font-weight:600;transition:.3s}
+.resume-link:hover{background:#19d9f418;transform:translateY(-3px)}
+.profile-wrap{display:flex;justify-content:center;position:relative}
+.profile-frame{width:100%;max-width:440px;height:550px;border:3px solid var(--cyan);border-radius:220px 220px 25px 25px;overflow:hidden;background:var(--card);box-shadow:0 0 55px #19d9f41c}
+.profile-frame img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.profile-label{position:absolute;bottom:25px;right:-5px;background:#111e30;border:1px solid var(--border);padding:18px 25px;border-radius:15px}
+.profile-label strong{color:var(--cyan)}
+.profile-label p{color:var(--gray);margin-top:7px;font-size:13px}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1.35fr .85fr;gap:65px;align-items:center}
+.about-text p{font-size:17px;line-height:2.1;color:var(--gray);margin-bottom:25px}
+.about-text strong{color:var(--white)}
+.about-details{border-top:1px solid var(--border);padding-top:35px;display:grid;grid-template-columns:1fr 1fr;gap:30px 20px}
+.detail small{display:block;color:#7386a2;font-size:12px;letter-spacing:1.5px;margin-bottom:12px}
+.detail strong{font-size:17px;font-weight:500}
+.about-photo{height:510px;overflow:hidden;border-radius:8px 8px 8px 35px;border:1px solid var(--border)}
+.about-photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.interest-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.interest-tags span{font-size:12px;padding:9px 13px;border-radius:20px;background:#19d9f411;color:var(--cyan);border:1px solid #19d9f433}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.skill-card{background:var(--card);border:1px solid var(--border);padding:35px 25px;border-radius:15px;text-align:center;transition:.3s}
+.skill-card:hover{transform:translateY(-7px);border-color:var(--cyan)}
+.skill-card i{font-size:40px;margin-bottom:20px}
+.skill-card h3{font-size:19px;margin-bottom:12px}
+.skill-card p{font-size:13px;color:var(--gray);line-height:1.8}
+.python-icon{color:#ffd43b}
+.cpp-icon{color:#659ad2}
+.ai-icon{color:#c084fc}
+.proficiency{max-width:850px;margin:60px auto 0;background:var(--card);padding:35px;border:1px solid var(--border);border-radius:15px}
+.proficiency h3{margin-bottom:30px;font-size:23px}
+.progress-item{margin-bottom:25px}
+.progress-info{display:flex;justify-content:space-between;font-size:14px;margin-bottom:10px}
+.progress-info span:last-child{color:var(--cyan)}
+.progress-bar{height:9px;background:#273448;border-radius:20px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--blue),var(--cyan));border-radius:20px}
+
+/* PROJECTS */
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
+.project-card{background:linear-gradient(145deg,#0e1929,#0a1220);border:1px solid var(--border);padding:30px;border-radius:16px;transition:.3s}
+.project-card:hover{transform:translateY(-7px);border-color:#19d9f488}
+.project-icon{width:62px;height:62px;border-radius:16px;display:grid;place-items:center;font-size:28px;margin-bottom:25px}
+.project-card h3{font-size:19px;margin-bottom:14px}
+.project-card p{color:var(--gray);font-size:12px;line-height:1.9}
+.tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+.tags span{padding:7px 12px;border-radius:20px;background:#19d9f411;color:var(--cyan);font-size:10px}
+.icon-java{background:#f9731620;color:#fb923c}
+.icon-student{background:#3b82f620;color:#60a5fa}
+.icon-ai{background:#a855f720;color:#c084fc}
+.icon-data{background:#10b98120;color:#34d399}
+.icon-agent{background:#eab30820;color:#facc15}
+.icon-library{background:#ec489920;color:#f472b6}
+
+/* EDUCATION - OPEN TIMELINE */
+.education-section{background:linear-gradient(180deg,#0a1423,#070c16)}
+.timeline{max-width:850px;margin:auto;position:relative}
+.timeline:before{content:"";position:absolute;left:15px;top:12px;bottom:15px;width:2px;background:linear-gradient(var(--cyan),var(--blue))}
+.education-item{position:relative;padding-left:65px;margin-bottom:45px}
+.education-dot{position:absolute;left:5px;top:5px;width:22px;height:22px;border:4px solid var(--cyan);border-radius:50%;background:var(--bg);box-shadow:0 0 15px #19d9f444}
+.education-card{padding:5px 0 10px}
+.education-card small{color:var(--cyan);letter-spacing:2px;font-size:11px}
+.education-card h3{font-size:23px;margin:13px 0}
+.education-card h4{color:#c1cde0;font-size:15px;margin-bottom:12px}
+.education-card p{color:var(--gray);font-size:13px;line-height:1.9}
+
+/* CONTACT */
+.contact-section{border-top:1px solid var(--border)}
+.contact-heading{margin-bottom:65px}
+.contact-heading h2{font-size:46px;margin:15px 0}
+.contact-heading h2 span{color:var(--cyan)}
+.contact-heading p{color:var(--gray);font-size:17px;line-height:1.8;max-width:750px}
+.contact-layout{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:start}
+.contact-info{display:flex;flex-direction:column;gap:17px}
+.contact-info a{display:flex;align-items:center;gap:20px;padding:21px;background:#0b111d;border:1px solid var(--border);border-radius:17px;transition:.3s}
+.contact-info a:hover{border-color:var(--cyan);transform:translateX(5px)}
+.contact-icon{width:48px;height:48px;flex-shrink:0;display:grid;place-items:center;border-radius:50%;background:#12233d;color:var(--cyan);font-size:19px}
+.contact-info small{display:block;color:#8293ad;font-size:10px;letter-spacing:1.5px;margin-bottom:8px}
+.contact-info strong{font-size:14px;font-weight:600;overflow-wrap:anywhere}
+.contact-form{padding:40px;background:#0b1321;border:1px solid #34445c;border-radius:24px}
+.form-group{margin-bottom:35px}
+.form-group label{display:block;font-size:12px;color:#b3c1d4;margin-bottom:14px}
+.form-group input,.form-group textarea{width:100%;background:#151e2c;border:1px solid #29364b;border-radius:10px;padding:17px 20px;color:white;font:inherit;font-size:15px;outline:none}
+.form-group input{height:55px}
+.form-group textarea{height:115px;resize:vertical}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--cyan)}
+.form-group input::placeholder,.form-group textarea::placeholder{color:#777f8d}
+.send-btn{width:100%;padding:18px;border:0;border-radius:40px;background:linear-gradient(90deg,var(--blue),var(--cyan));font-size:16px;font-weight:700;color:#06101e;cursor:pointer;transition:.3s}
+.send-btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px #20d9f433}
+
+/* FOOTER */
+footer{text-align:center;background:#060b14;padding:40px 15px 25px;border-top:1px solid var(--border)}
+.footer-role{max-width:700px;margin:auto;color:#8798b0;font-size:17px;line-height:1.9}
+.footer-socials{display:flex;justify-content:center;gap:15px;margin:35px 0}
+.footer-socials a{width:63px;height:63px;display:grid;place-items:center;border:1px solid var(--border);border-radius:50%;color:#a9b8cc;font-size:21px;transition:.3s}
+.footer-socials a:hover{color:var(--cyan);border-color:var(--cyan);transform:translateY(-5px)}
+.footer-copy{font-size:13px;color:#8191a8;letter-spacing:1px}
+.footer-copy span{color:var(--cyan)}
+
+/* RESPONSIVE */
+@media(max-width:850px){
+.menu-btn{display:block;cursor:pointer}
+.nav-links{display:none;position:absolute;top:75px;left:0;width:100%;padding:25px;background:#0c1422;flex-direction:column}
+.nav-links.show{display:flex}
+.hero-grid,.about-grid,.contact-layout{grid-template-columns:1fr}
+.projects-grid{grid-template-columns:repeat(2,1fr)}
+.hero-grid{text-align:center;padding:40px 0}
+.profile-wrap{grid-row:1}
+.profile-frame{max-width:330px;height:400px}
+.role-tags{justify-content:center}
+.about-photo{max-width:500px;width:100%;margin:auto;height:450px}
+.contact-layout{gap:35px}
+}
+@media(max-width:550px){
+.container{width:91%}
+section{padding:75px 0}
+.heading h2,.contact-heading h2{font-size:33px}
+.hero h1{font-size:42px}
+.hero-intro{font-size:15px}
+.profile-frame{max-width:260px;height:330px}
+.skills-grid,.projects-grid{grid-template-columns:1fr}
+.about-text p{font-size:15px}
+.about-details{gap:25px 10px}
+.detail strong{font-size:14px}
+.about-photo{height:370px}
+.proficiency{padding:25px 18px}
+.education-item{padding-left:48px}
+.contact-form{padding:28px 20px}
+.contact-heading p{font-size:15px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container">
+<nav>
+<a href="#home" class="logo">Mutee<span>.</span></a>
+<button class="menu-btn" id="menuBtn" aria-label="Open navigation"><i class="fas fa-bars"></i></button>
+<ul class="nav-links" id="navLinks">
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<!-- HOME -->
+<section class="hero" id="home">
+<div class="container">
+<div class="hero-grid">
+<div>
+<h1>Hi, I'm<br><span>Mutee Ur Rehman.</span></h1>
+<p class="hero-intro">
+BS Data Science Student <span>·</span>
+Full Stack Developer <span>·</span>
+AI & Machine Learning Enthusiast
+</p>
+<div class="role-tags">
+<span><i class="fas fa-brain"></i> AI & ML Enthusiast</span>
+<span><i class="fas fa-code"></i> Full Stack Developer</span>
+<span><i class="fas fa-laptop-code"></i> Aspiring Software Developer</span>
+<span><i class="fas fa-database"></i> Data Science Student</span>
+</div>
+<div class="resume-cta">
+<a class="resume-link" href="resume.pdf" download>
+<i class="fas fa-file-arrow-down"></i> Download CV / Resume
+</a>
+</div>
+</div>
+
+<div class="profile-wrap">
+<div class="profile-frame">
+<img src="profile.jpg" alt="Mutee Ur Rehman">
+</div>
+<div class="profile-label">
+<strong>BS Data Science</strong>
+<p>Air University</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+<div class="container">
+<div class="heading">
+<small>// 01. ABOUT ME</small>
+<h2>About <span>Me</span></h2>
+</div>
+
+<div class="about-grid">
+<div class="about-text">
+<p>
+I am <strong>Mutee Ur Rehman</strong>, a BS Data Science student at
+<strong>Air University</strong>. I have an interest in programming,
+full-stack development, and building intelligent software solutions.
+</p>
+<p>
+I am passionate about <strong>Artificial Intelligence, Machine Learning,
+Data Science, and Web Development</strong>. I enjoy learning new
+technologies, solving practical problems, and developing projects
+that turn ideas into useful solutions.
+</p>
+<p>
+My goal is to strengthen my technical skills, gain practical industry
+experience, and grow as a developer in the technology field.
+</p>
+
+<div class="about-details">
+<div class="detail"><small>NAME</small><strong>Mutee Ur Rehman</strong></div>
+<div class="detail"><small>DEGREE</small><strong>BS Data Science</strong></div>
+<div class="detail"><small>UNIVERSITY</small><strong>Air University</strong></div>
+<div class="detail"><small>BASED IN</small><strong>Pakistan</strong></div>
+<div class="detail"><small>FIELD</small><strong>AI & Machine Learning</strong></div>
+<div class="detail"><small>AGE</small><strong>19</strong></div>
+</div>
+</div>
+
+<div class="about-photo">
+<img src="profile.jpg" alt="Mutee Ur Rehman portrait">
+</div>
+</div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+<div class="container">
+<div class="heading">
+<small>// 02. MY EXPERTISE</small>
+<h2>Technical <span>Skills</span></h2>
+<p>Core technologies and areas I am learning and working with.</p>
+</div>
+
+<div class="skills-grid">
+<div class="skill-card">
+<i class="fab fa-python python-icon"></i>
+<h3>Python</h3>
+<p>Programming, data handling, algorithms and data analysis.</p>
+</div>
+<div class="skill-card">
+<i class="fas fa-code cpp-icon"></i>
+<h3>C++</h3>
+<p>Programming fundamentals, arrays and object-oriented programming.</p>
+</div>
+<div class="skill-card">
+<i class="fas fa-brain ai-icon"></i>
+<h3>AI Fundamentals</h3>
+<p>Search algorithms, intelligent agents and machine learning fundamentals.</p>
+</div>
+</div>
+
+<div class="proficiency">
+<h3>Technical Proficiency</h3>
+<div class="progress-item">
+<div class="progress-info"><span>Python</span><span>100%</span></div>
+<div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
+</div>
+<div class="progress-item">
+<div class="progress-info"><span>C++</span><span>100%</span></div>
+<div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
+</div>
+<div class="progress-item">
+<div class="progress-info"><span>Java</span><span>95%</span></div>
+<div class="progress-bar"><div class="progress-fill" style="width:95%"></div></div>
+</div>
+<div class="progress-item">
+<div class="progress-info"><span>HTML</span><span>95%</span></div>
+<div class="progress-bar"><div class="progress-fill" style="width:95%"></div></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+<div class="container">
+<div class="heading">
+<small>// 03. MY WORK</small>
+<h2>Featured <span>Projects</span></h2>
+<p>Selected academic and programming projects.</p>
+</div>
+
+<div class="projects-grid">
+
+<div class="project-card">
+<div class="project-icon icon-java"><i class="fas fa-building-columns"></i></div>
+<h3>Bank Management System</h3>
+<p>A Java banking application with account management, deposits, withdrawals, transfers and a graphical user interface.</p>
+<div class="tags"><span>Java</span><span>OOP</span><span>Java Swing</span></div>
+</div>
+
+<div class="project-card">
+<div class="project-icon icon-student"><i class="fas fa-user-graduate"></i></div>
+<h3>Student Management System</h3>
+<p>A student information management project focused on organizing student records and applying object-oriented programming.</p>
+<div class="tags"><span>C++</span><span>OOP</span><span>Programming</span></div>
+</div>
+
+<div class="project-card">
+<div class="project-icon icon-ai"><i class="fas fa-robot"></i></div>
+<h3>AI Search Algorithms</h3>
+<p>Implementation and exploration of Breadth First Search, Depth First Search and Uniform Cost Search on graph problems.</p>
+<div class="tags"><span>Python</span><span>BFS</span><span>DFS</span><span>UCS</span></div>
+</div>
+
+<div class="project-card">
+<div class="project-icon icon-data"><i class="fas fa-chart-pie"></i></div>
+<h3>Data Analysis &amp; Visualization</h3>
+<p>An academic data analysis project involving data processing, statistical calculations and graphical representation of datasets.</p>
+<div class="tags"><span>Python</span><span>Pandas</span><span>Matplotlib</span><span>Statistics</span></div>
+</div>
+
+<div class="project-card">
+<div class="project-icon icon-agent"><i class="fas fa-temperature-high"></i></div>
+<h3>Smart Temperature Monitoring Agent</h3>
+<p>A simple intelligent monitoring program that checks temperature readings and generates alerts when a defined threshold is exceeded.</p>
+<div class="tags"><span>Python</span><span>AI Fundamentals</span><span>Logic</span></div>
+</div>
+
+<div class="project-card">
+<div class="project-icon icon-library"><i class="fas fa-broom"></i></div>
+<h3>Smart Vacuum Cleaner Agent</h3>
+<p>A basic intelligent agent that observes room conditions, identifies dirty locations and performs actions to clean its environment.</p>
+<div class="tags"><span>Python</span><span>AI Agent</span><span>Logic</span></div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- EDUCATION -->
+<section class="education-section" id="education">
+<div class="container">
+<div class="heading">
+<small>// 04. ACADEMIC BACKGROUND</small>
+<h2>My <span>Education</span></h2>
+<p>My academic journey and qualifications.</p>
+</div>
+
+<div class="timeline">
+
+<div class="education-item">
+<div class="education-dot"></div>
+<div class="education-card">
+<small>UNDERGRADUATE EDUCATION</small>
+<h3>Bachelor of Science in Data Science</h3>
+<h4><i class="fas fa-university"></i> Air University</h4>
+<p>Currently pursuing BS Data Science, developing knowledge in programming, mathematics, statistics, algorithms, artificial intelligence and data analysis.</p>
+</div>
+</div>
+
+<div class="education-item">
+<div class="education-dot"></div>
+<div class="education-card">
+<small>HIGHER SECONDARY EDUCATION</small>
+<h3>Intermediate</h3>
+<h4><i class="fas fa-school"></i> Aspire College </h4>
+<p>Completed intermediate education, building an academic foundation for higher studies and professional learning.</p>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+<div class="container">
+
+<div class="contact-heading">
+<small style="color:var(--cyan);letter-spacing:3px">// 05. CONTACT</small>
+<h2>Let's build something <span>together</span></h2>
+<p>Open to internships, collaborations, and entry-level opportunities in web development, data science, and AI/ML.</p>
+</div>
+
+<div class="contact-layout">
+
+<div class="contact-info">
+
+<a href="mailto:YOUR-EMAIL@example.com">
+<div class="contact-icon"><i class="far fa-envelope"></i></div>
+<div><small>EMAIL</small><strong>mutee.rehman.acj@gmail.com</strong></div>
+</a>
+
+<a href="tel:+92XXXXXXXXXX">
+<div class="contact-icon"><i class="fas fa-phone"></i></div>
+<div><small>PHONE</small><strong>+92 3334097557</strong></div>
+</a>
+
+<a href="https://www.linkedin.com/in/YOUR-LINKEDIN/" target="_blank" rel="noopener noreferrer">
+<div class="contact-icon"><i class="fab fa-linkedin-in"></i></div>
+<div><small>LINKEDIN</small><strong>Mutee Ur Rehman</strong></div>
+</a>
+
+</div>
+
+<form class="contact-form" id="contactForm">
+
+<div class="form-group">
+<label for="name">Name</label>
+<input type="text" id="name" placeholder="Your full name" required>
+</div>
+
+<div class="form-group">
+<label for="email">Email</label>
+<input type="email" id="email" placeholder="you@example.com" required>
+</div>
+
+<div class="form-group">
+<label for="message">Message</label>
+<textarea id="message" placeholder="Tell me about the opportunity or project..." minlength="10" required></textarea>
+</div>
+
+<button type="submit" class="send-btn">Send Message</button>
+</form>
+
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<p class="footer-role">
+BS Data Science Student · Full Stack Developer ·
+AI & Machine Learning Enthusiast · Aspiring Developer
+</p>
+
+<div class="footer-socials">
+<a href="mailto:YOUR-EMAIL@example.com" aria-label="Email"><i class="far fa-envelope"></i></a>
+<a href="https://www.linkedin.com/in/YOUR-LINKEDIN/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+<a href="tel:+92XXXXXXXXXX" aria-label="Phone"><i class="fas fa-phone"></i></a>
+</div>
+
+<p class="footer-copy">© <span id="year"></span> Mutee Ur Rehman. Built with HTML, CSS & JavaScript.</p>
+</footer>
+
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
+    menuBtn.innerHTML = navLinks.classList.contains("show")
+        ? '<i class="fas fa-times"></i>'
+        : '<i class="fas fa-bars"></i>';
+});
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("show");
+        menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+    });
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+const messageInput = document.getElementById("message");
+messageInput.addEventListener("input", () => {
+    messageInput.setCustomValidity(
+        messageInput.value.trim().length < 10
+            ? "Please enter at least 10 non-whitespace characters."
+            : ""
+    );
+});
+
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = messageInput.value.trim();
+
+    if (message.length < 10) {
+        messageInput.setCustomValidity("Please enter at least 10 non-whitespace characters.");
+        messageInput.reportValidity();
+        return;
+    }
+
+    const recipient = "YOUR-EMAIL@example.com";
+    const subject = encodeURIComponent("Portfolio message from " + name);
+    const body = encodeURIComponent(
+        "Name: " + name +
+        "\nEmail: " + email +
+        "\n\nMessage:\n" + message
+    );
+
+    window.location.href =
+        "mailto:" + recipient + "?subject=" + subject + "&body=" + body;
+});
+</script>
+
+</body>
+</html>
